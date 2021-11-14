@@ -59,10 +59,29 @@ class API extends Axios {
     async Removebg(image) {
         const data = new FormData()
         data.append('image', image, 'image.jpg')
-        return JSON.parse(ResponseStatusChecker(await this.post('/removebg', data, {headers:{'Content-Type': `multipart/form-data; boundary=${data._boundary}`, Authorization:this.apikey}}))).data
+        return ResponseStatusChecker(await this.post('/removebg', data, {headers:{'Content-Type': `multipart/form-data; boundary=${data._boundary}`, Authorization:this.apikey}}))
+    }
+
+    /**
+     * 
+     * @param {*} url 
+     * @returns 
+     */    
+    async Webtoon(url) {
+        return JSON.parse(ResponseStatusChecker(await this.get('/webtoon',{params: {url: url}})).data)
+    }
+
+    /**
+     * 
+     * @param {*} black 
+     * @param {*} orange 
+     * @returns 
+     */
+    async pornhub(black, orange) {
+        return JSON.parse(ResponseStatusChecker(await this.get('/phlogo', {params: {x: black, y: orange}})).data)
     }
 }
 module.exports = { API }
 
-// const api = new API('apikey');
-// api.Twibbonizze('twibbonkbi','./image.jpeg', 1).then(console.log)
+// const api = new API(Authorization);
+// api.pornhub('krypton', 'byte').then(console.log)
