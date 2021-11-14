@@ -24,7 +24,7 @@ class API extends Axios {
      * @param {*} text 
      * @returns 
      */
-    async blackpink(text) {
+    async Blackpink(text) {
         return JSON.parse(ResponseStatusChecker(await this.get('/blackpink', {params: {text: text}})).data);
     }
     /**
@@ -47,7 +47,7 @@ class API extends Axios {
      * @param {*} n2 
      * @returns 
      */
-    async jodoh(n1, n2) {
+    async Jodoh(n1, n2) {
         return JSON.parse(ResponseStatusChecker(await this.get('/jodoh', {params: {n1: n1,n2: n2}})).data)
     }
 
@@ -77,7 +77,7 @@ class API extends Axios {
      * @param {*} orange 
      * @returns 
      */
-    async pornhub(black, orange) {
+    async PornHub(black, orange) {
         return JSON.parse(ResponseStatusChecker(await this.get('/phlogo', {params: {x: black, y: orange}})).data)
     }
 }
